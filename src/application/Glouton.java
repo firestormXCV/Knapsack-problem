@@ -5,7 +5,6 @@ import java.util.Collections;
 
 public class Glouton {
 		
-	//récupérer le code quick sort cf git
 	// mettre le quick sort ici 
 	
 	//appel de quicksort sur le tableau des objets et trié par ordre décroissant 
@@ -20,13 +19,14 @@ public class Glouton {
 	ArrayList<Objet> list = new ArrayList<>();
 	Collections.sort(list);
 	
+	// comment faire le lien entre ratio et objet 
+	
 	public void glouton(SacADos bag, ArrayList list) {
-		float weight = 0;
+		float weight = bag.getCurrentWeight();
 		for(int i = 0; i < list.size(); i++) {
 			if(weight <= bag.getMaxWeight()) {
 				bag.addObject(list.get(i));
 			}
 		}
-		
 	}
 }

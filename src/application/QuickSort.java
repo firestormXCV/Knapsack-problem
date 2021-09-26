@@ -1,58 +1,51 @@
 package application;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class QuickSort {
     
-	static int repartition(int[] arr, int low, int high)
-	{
-	      
-	    // pivot
-	    int pivot = arr[high]; 
-	      
-	    // Index of smaller element and
-	    // indicates the right position
-	    // of pivot found so far
-	    int i = (low - 1); 
+	static int repartition(ArrayList<Objet> list, float low, float high) {
+	 
+	    float pivot = list.get((int) high).getRatio(); 
+
+	    int i = (int) (low - 1); 
 	  
-	    for(int j = low; j <= high - 1; j++)
-	    {
-	          
-	        // If current element is smaller 
-	        // than the pivot
-	        if (arr[j] < pivot) 
-	        {
-	              
-	            // Increment index of 
-	            // smaller element
-	            i++; 
-	            change(arr, i, j);
+	    for(int j = (int) low; j <= high - 1; j++){
+
+	        if (list.get(j).getRatio() < pivot){
+	            i++;
+	             Collections.swap(list, i, j);
+	            //swap(list, i, j);
 	        }
 	    }
-	    change(arr, i + 1, high);
+	    Collections.swap(list, i+1, (int) high);
+	    //swap(list, i + 1, high);
 	    return (i + 1);
 	}
     
     
-    static int[] QuickSort(int[] arr, int first, int last) {
-        int pivot; 
+    static ArrayList<Objet> QuickSort(ArrayList<Objet> list, float first, float last) {
+        float pivot; 
         
         if (first < last) {
-            pivot = ChoosePi(arr, first, last);
-            int pi = repartition(arr, first, last);
-            pivot = arr[arr.length-1];
-            arr = QuickSort(arr, first, pi -1 );
-            arr = QuickSort(arr, pi +1, last);
+            pivot = ChoosePi(list, first, last);
+            float pi = repartition(list, first, last);
+            pivot = list.size() - 1;
+            list = QuickSort(list, first, pi -1 );
+            list = QuickSort(list, pi +1, last);
             
         }
-        return arr;
+        return list;
     }
     
-    static void change(int[]t, int x, int y) {
-        int tmp = t[x];
-        t[x] = t[y];
-        t[y] = tmp;
-    }
+//    static void swap(ArrayList<Objet> list, int x, int y) {
+//        int tmp = t[x];
+//        t[x] = t[y];
+//        t[y] = tmp;
+//    }
     
-    static int ChoosePi(int[] t, int d, int f) {
-        return t[d];
+    static float ChoosePi(ArrayList<Objet> list, float d, float f) {
+        return list.get((int) d).getRatio();
     }
 }

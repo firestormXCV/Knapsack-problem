@@ -28,4 +28,8 @@ public class Objet {
 		return value;
 	}
 	
+	public float getRatio() {
+		return ratio;
+	}
+	
 }

@@ -9,21 +9,22 @@ import java.util.ArrayList;
 public class SacADos {
 	
 	private float maxWeight;
+	private float currentWeight; 
 	private ArrayList<Objet> objectsList;
 	
 	
 	//Construteur générant un sac vide
 	public SacADos(float maxWeight) {
 		this.maxWeight = maxWeight;
+		this.currentWeight = 0;
 		this.objectsList = new ArrayList<Objet>();
 	}
 	
 	public SacADos(String path, float maxWeight) {
 		this.maxWeight = maxWeight;
 		this.objectsList = new ArrayList<Objet>();
-		
-		String fileContent = readTextFile(path);
-		
+		this.currentWeight = 0;
+		objectsList = initObjList(path);
 	}
 
 	//voir si on créer une nouvelle classe pour les méthodes suivantes 
@@ -82,4 +83,10 @@ public class SacADos {
 	public void addObject(Objet o) {
 		this.objectsList.add(o);
 	}
+
+	public float getCurrentWeight() {
+		return currentWeight;
+	}
+	
+	
 }
