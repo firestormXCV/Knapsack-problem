@@ -1,13 +1,19 @@
 package application;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class Appli {
 
 	public static void main(String[] args) {
 		
-		SacADos bag = new SacADos(15);
-		SacADos rempli = new SacADos("items.txt", 20);
+		SacADos rempli = new SacADos("items.txt", 3);
 		
-		System.out.println(rempli.toString());
+		rempli.setObjectList(QuickSort.QuickSort(rempli.getObjectList(),(float) 0, (float) rempli.getObjectList().size() - 1));
+		
+		Glouton.glouton(rempli);
+		
+		System.out.println(rempli.toStringIn());
 		
 	}
 
@@ -15,7 +21,6 @@ public class Appli {
 	 * A faire parce que ca marche pas :
 	 * 
 	 * - faire l'algo glouton 
-	 * - remplacer Colections.sort par notre algo de quick sort 
 	 */
 }
 

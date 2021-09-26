@@ -11,19 +11,22 @@ public class SacADos {
 	private float maxWeight;
 	private float currentWeight; 
 	private ArrayList<Objet> objectsList;
-	
-	
+	private ArrayList<Objet> inTheBag;
+
 	//Construteur générant un sac vide
 	public SacADos(float maxWeight) {
 		this.maxWeight = maxWeight;
 		this.currentWeight = 0;
 		this.objectsList = new ArrayList<Objet>();
+		this.inTheBag = new ArrayList<Objet>();
 	}
 	
 	public SacADos(String path, float maxWeight) {
 		this.maxWeight = maxWeight;
 		this.objectsList = new ArrayList<Objet>();
+		this.inTheBag = new ArrayList<Objet>();
 		this.currentWeight = 0;
+		
 		objectsList = initObjList(path);
 	}
 
@@ -68,10 +71,18 @@ public class SacADos {
 	}
 	
 	
-	public String toString() {
+	public String toStringOut() {
 		StringBuilder bagContent = new StringBuilder();
 		for(Objet o : objectsList) {
-			bagContent.append(o.getName() + " ; " + o.getWeight() + " ; " + o.getValue() + "\n");
+			bagContent.append(o.getName() + " ; " + o.getWeight() + " ; " + o.getValue()+ " ; " + o.getRatio() + "\n");
+		}
+		return bagContent.toString();
+	}
+	
+	public String toStringIn() {
+		StringBuilder bagContent = new StringBuilder();
+		for(Objet o : inTheBag) {
+			bagContent.append(o.getName() + " ; " + o.getWeight() + " ; " + o.getValue()+ " ; " + o.getRatio() + "\n");
 		}
 		return bagContent.toString();
 	}
@@ -81,11 +92,32 @@ public class SacADos {
 	}
 	
 	public void addObject(Objet o) {
-		this.objectsList.add(o);
+		
+		if (currentWeight + o.getWeight() <= maxWeight) {
+			this.inTheBag.add(o);
+			currentWeight += o.getWeight();
+		}else 
+			return;
 	}
 
 	public float getCurrentWeight() {
 		return currentWeight;
+	}
+	
+	public ArrayList<Objet> getObjectList(){
+		return this.objectsList;
+	}
+	
+	public void setObjectList(ArrayList<Objet> list ) {
+		this.objectsList = list;
+	}
+	
+	private ArrayList<Objet> getInTheBag() {
+		return inTheBag;
+	}
+
+	private void setInTheBag(ArrayList<Objet> inTheBag) {
+		this.inTheBag = inTheBag;
 	}
 	
 	
