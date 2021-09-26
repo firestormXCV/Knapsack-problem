@@ -13,8 +13,8 @@ public class SacADos {
 	
 	
 	//Construteur générant un sac vide
-	public SacADos() {
-		this.maxWeight = 0;
+	public SacADos(float maxWeight) {
+		this.maxWeight = maxWeight;
 		this.objectsList = new ArrayList<Objet>();
 	}
 	
@@ -27,7 +27,7 @@ public class SacADos {
 	}
 
 	//voir si on créer une nouvelle classe pour les méthodes suivantes 
-	private String readTextFile(String path) {
+	public String readTextFile(String path) {
 		StringBuilder fileContent = new StringBuilder();
 		try {
 			File f = new File(path);
@@ -47,7 +47,8 @@ public class SacADos {
 	
 	private Objet initObj(String obj) {
 		String[] objInfo = obj.split(";");
-		if (objInfo.length == 2) {
+		//parce que lenght renvoi le nb d'éléments donc 3
+		if (objInfo.length == 3) {
 			return new Objet (objInfo[0], Float.parseFloat(objInfo[1]), Float.parseFloat(objInfo[2]));
 		}
 		return null; // return exception obj non valide
@@ -72,5 +73,13 @@ public class SacADos {
 			bagContent.append(o.getName() + " ; " + o.getWeight() + " ; " + o.getValue() + "\n");
 		}
 		return bagContent.toString();
+	}
+
+	public float getMaxWeight() {
+		return maxWeight;
+	}
+	
+	public void addObject(Objet o) {
+		this.objectsList.add(o);
 	}
 }
