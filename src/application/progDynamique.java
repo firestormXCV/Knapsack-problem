@@ -26,5 +26,21 @@ public class progDynamique {
 			}
 		}
 	}
+	
+	/**
+	 * TODO : 
+	 * finir la méthode en récupérant les objets à l'aide du pseudo code suivant 
+	 * 
+	 * Et puis, de là, on récupère les objets :
+
+		TANT QUE j > 0
+		TANT QUE i > 0 ET M[i][j] EGALE M[i-1][j]
+		décrémente i
+		j = j - PoidsObjet[i]
+		SI j > 0
+		Ajoute-objet ( Objet[i] )
+		décrémente i
+		
+	 */
 }
 
