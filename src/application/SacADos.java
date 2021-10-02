@@ -112,13 +112,18 @@ public class SacADos {
 		this.objectsList = list;
 	}
 	
-	private ArrayList<Objet> getInTheBag() {
+	public ArrayList<Objet> getInTheBag() {
 		return inTheBag;
 	}
 
-	private void setInTheBag(ArrayList<Objet> inTheBag) {
+	public void setInTheBag(ArrayList<Objet> inTheBag) {
 		this.inTheBag = inTheBag;
 	}
+	
+	public int nbObjetsInTheBag() {
+		return this.objectsList.size();
+	}
+	
 	
 	
 }
