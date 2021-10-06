@@ -6,7 +6,7 @@ public class progDynamique {
 		int nbObj = b.nbObjetsInTheBag();
 		int maxWeight = (int) b.getMaxWeight();
 		
-		int[][] mat = new int[nbObj][maxWeight];
+		int[][] mat = new int[nbObj][maxWeight+1];
 		
 		for(int i = 0; i < nbObj; i++) {
 			for(int j = 0; j < maxWeight; j++) {

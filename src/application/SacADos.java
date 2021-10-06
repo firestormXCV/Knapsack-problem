@@ -123,7 +123,4 @@ public class SacADos {
 	public int nbObjetsInTheBag() {
 		return this.objectsList.size();
 	}
-	
-	
-	
 }

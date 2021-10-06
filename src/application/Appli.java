@@ -7,7 +7,7 @@ public class Appli {
 
 	public static void main(String[] args) {
 		
-		SacADos rempli = new SacADos("items.txt", 3);
+		SacADos rempli = new SacADos("items.txt", 15);
 		
 		rempli.setObjectList(QuickSort.QuickSort(rempli.getObjectList(),(float) 0, (float) rempli.getObjectList().size() - 1));
 		
@@ -20,7 +20,7 @@ public class Appli {
 	/**
 	 * A faire parce que ca marche pas :
 	 * 
-	 * - faire l'algo glouton 
+	 * - faire la méthode de recupération des objets dans progDynamique
 	 */
 }
 
