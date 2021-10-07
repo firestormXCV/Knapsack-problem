@@ -20,7 +20,8 @@ public class Appli {
 	/**
 	 * A faire parce que ca marche pas :
 	 * 
-	 * - faire la méthode de recupération des objets dans progDynamique
+	 * - faire la methode de recuperation des objets dans progDynamique
+	 * - tester si les mÃ©thodes avec les coeff fonctionnent bien 
 	 */
 }
 
