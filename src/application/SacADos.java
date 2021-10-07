@@ -70,7 +70,13 @@ public class SacADos {
 		
 	}
 	
-	
+	/**
+	 * 
+	 * ajouter des informations sur le sac ? 
+	 * - poids total 
+	 * - valeur total 
+	 * - % de remplissage du sac 
+	 */
 	public String toStringOut() {
 		StringBuilder bagContent = new StringBuilder();
 		for(Objet o : objectsList) {

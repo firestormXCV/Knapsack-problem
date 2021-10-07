@@ -42,5 +42,18 @@ public class progDynamique {
 		décrémente i
 		
 	 */
+	
+	/** 
+	 * pour les poids qui sont en float / problème de cast en int dans cette méthode 
+	 * poids de tous les objets et poids du sac 
+	 * - regarder celui qui a le plus de chiffre apres la virgule 
+	 * - multiplier les poids de tous les objet + sac par 10 puissance nb chiffres apres la virgule 
+	 * 
+	 * ex : si obj1 = 0,002 alors on multiplie par 10^3 tous les poids des objets 
+	 * avec ca on obtient que des entiers donc on peut manipuler les poids dans l'algo
+	 * 
+	 * stocker le coefficient et faire la modification avant de faire tourner l'algo 
+	 * apres que l'algo ai tourné, divisier tous les poids (obj et sac) par le coef
+	 */
 }
 
