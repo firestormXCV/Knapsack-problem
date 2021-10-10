@@ -12,6 +12,7 @@ public class SacADos {
 	private float currentWeight; 
 	private ArrayList<Objet> objectsList;
 	private ArrayList<Objet> inTheBag;
+	private float values;
 
 	//Construteur générant un sac vide
 	public SacADos(float maxWeight) {
@@ -132,6 +133,14 @@ public class SacADos {
 
 	public void setMaxWeight(float maxWeight) {
 		this.maxWeight = maxWeight;
+	}
+
+	public float getValues() {
+		return values;
+	}
+
+	public void addValues(float values) {
+		this.values += values;
 	}
 	
 }
