@@ -103,6 +103,7 @@ public class SacADos {
 		if (currentWeight + o.getWeight() <= maxWeight) {
 			this.inTheBag.add(o);
 			currentWeight += o.getWeight();
+			values += o.getValue();
 		}else 
 			return;
 	}
@@ -139,8 +140,6 @@ public class SacADos {
 		return values;
 	}
 
-	public void addValues(float values) {
-		this.values += values;
-	}
+
 	
 }
