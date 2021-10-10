@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class progDynamique {
-	
+		
 	public static final void progDynamique(SacADos b) {
 		int nbObj = b.nbObjetsInTheBag();
 		int coeff = coefficient(b , b.getObjectList());
@@ -29,9 +29,23 @@ public class progDynamique {
 				else {
 					mat[i][j] = Math.max(mat[i - 1][j], mat[i - 1][(j - b.getObjectList().get(i).getWeight()) + b.getObjectList().get(i).getValue()]);
 				}
+				
+				while(mat[i][j] == mat[i][j-1]) {
+					j--;
+					while(j > 0) {
+						while(i > 0 && mat[i][j] == mat[i-1][j]) {
+							i--;
+							j = j - b.getObjectList().get(i).getWeight();
+							if(j > 0) {
+								b.addObject(b.getObjectList().get(i));
+								i--;
+							}
+						}
+					}
+				}				
 			}
 		}
-		
+	
 		castToFloat(coeff, b.getObjectList(), b);
 	}
 	
@@ -60,57 +74,24 @@ public class progDynamique {
 		return (int) Math.pow(10, coeff);
 	}
 	
-	// erreurs ?
+
 	public static void castToInt(int coeff, ArrayList<Objet> list, SacADos b) {
 		for(Objet o : list) {
-			o.getWeight() *= coeff;
+			o.setWeight(o.getWeight() * coeff);
 		}
-		
-		b.getMaxWeight() *= coeff;
+		b.setMaxWeight(b.getMaxWeight() * coeff);
 	}
 	
 	public static void castToFloat(int coeff, ArrayList<Objet> list, SacADos b) {
 		try {
 			for(Objet o : list) {
-				o.getWeight() /= coeff;
+				o.setWeight(o.getWeight() / coeff);
 			}
-			
-			b.getMaxWeight() /= coeff;
+			b.setMaxWeight(b.getMaxWeight() / coeff);
 		}
 		catch(ArithmeticException e) {
 			System.out.println("Divion par 0 impossible");
 		}
 		
 	}
-			
 }
-	/**
-	 * TODO : 
-	 * finir la méthode en récupérant les objets à l'aide du pseudo code suivant 
-	 * 
-	 * Et puis, de là, on récupère les objets :
-
-		TANT QUE j > 0
-		TANT QUE i > 0 ET M[i][j] EGALE M[i-1][j]
-		décrémente i
-		j = j - PoidsObjet[i]
-		SI j > 0
-		Ajoute-objet ( Objet[i] )
-		décrémente i
-		
-	 */
-	
-	/** 
-	 * pour les poids qui sont en float / problème de cast en int dans cette méthode 
-	 * poids de tous les objets et poids du sac 
-	 * - regarder celui qui a le plus de chiffre apres la virgule 
-	 * - multiplier les poids de tous les objet + sac par 10 puissance nb chiffres apres la virgule 
-	 * 
-	 * ex : si obj1 = 0,002 alors on multiplie par 10^3 tous les poids des objets 
-	 * avec ca on obtient que des entiers donc on peut manipuler les poids dans l'algo
-	 * 
-	 * stocker le coefficient et faire la modification avant de faire tourner l'algo 
-	 * apres que l'algo ai tourné, divisier tous les poids (obj et sac) par le coef
-	 */
-}
-

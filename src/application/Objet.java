@@ -31,5 +31,9 @@ public class Objet {
 	public float getRatio() {
 		return ratio;
 	}
-	
+
+	public void setWeight(float weight) {
+		this.weight = weight;
+	}
+		
 }

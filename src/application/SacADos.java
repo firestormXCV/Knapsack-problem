@@ -129,4 +129,9 @@ public class SacADos {
 	public int nbObjetsInTheBag() {
 		return this.objectsList.size();
 	}
+
+	public void setMaxWeight(float maxWeight) {
+		this.maxWeight = maxWeight;
+	}
+	
 }
