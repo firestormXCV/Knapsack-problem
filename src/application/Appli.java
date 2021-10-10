@@ -18,10 +18,12 @@ public class Appli {
 	}
 
 	/**
-	 * A faire parce que ca marche pas :
-	 * 
-	 * - faire la methode de recuperation des objets dans progDynamique
+	 * TODO
 	 * - tester si les méthodes avec les coeff fonctionnent bien 
+	 * - ecrire la méthode pse 
+	 * - tester la méthode pse une fois fini 
+	 * - modifier le tostring du sac ? 
+	 * - faire des tests unitaires ? 
 	 */
 }
 
