@@ -10,7 +10,7 @@ public class progDynamique {
 		int coeff = coefficient(b , b.getObjectList());
 		
 		castToInt(coeff, b.getObjectList(), b);
-		int maxWeight = b.getMaxWeight();
+		int maxWeight = (int) b.getMaxWeight();
 		
 		int[][] mat = new int[nbObj][maxWeight+1];
 		
@@ -20,14 +20,14 @@ public class progDynamique {
 					mat[0][j] = 0;
 				}
 				else {
-					mat[0][j] = b.getObjectList().get(0).getValue();
+					mat[0][j] = (int) b.getObjectList().get(0).getValue();
 				}
 				
 				if(b.getObjectList().get(i).getWeight() > j) {
 					mat[i][j] = mat[i - 1][j];
 				}
 				else {
-					mat[i][j] = Math.max(mat[i - 1][j], mat[i - 1][(j - b.getObjectList().get(i).getWeight()) + b.getObjectList().get(i).getValue()]);
+					mat[i][j] = Math.max(mat[i - 1][j], mat[i - 1][(int) ((j - b.getObjectList().get(i).getWeight()) + b.getObjectList().get(i).getValue())]);
 				}
 				
 				while(mat[i][j] == mat[i][j-1]) {
@@ -35,7 +35,7 @@ public class progDynamique {
 					while(j > 0) {
 						while(i > 0 && mat[i][j] == mat[i-1][j]) {
 							i--;
-							j = j - b.getObjectList().get(i).getWeight();
+							j = (int) (j - b.getObjectList().get(i).getWeight());
 							if(j > 0) {
 								b.addObject(b.getObjectList().get(i));
 								i--;
