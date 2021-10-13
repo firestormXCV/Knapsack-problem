@@ -13,14 +13,38 @@ public class progDynamique {
 		int maxWeight = (int) b.getMaxWeight();
 		
 		int[][] mat = new int[nbObj][maxWeight+1];
-		int i = 0;
+		int i = 1;
 		int j = 0;
 		//boucle d'initialisaton de la matrice :tout mettre a 0 
 		//boucle simple cf la boucle j 
+
+		for(; j < b.getMaxWeight(); j++){
+			if(b.getObjectList().get(0).getWeight() > j){
+				mat[0][j] = 0;
+			}
+			else{
+				mat[0][j] = (int) b.getObjectList().get(0).getValue();
+			}
+		}
 		
 		//faire ensuite la double blouce de i et j pour remplir le tableau 
 		// i = nb objet 
 		// j = poids max + 1
+		i=1;
+		j=0;
+		
+		for(; i < nbObj; i++){
+			j=0;
+			for(; j < b.getMaxWeight()+1; j++){
+				if(b.getObjectList().get(i).getWeight() > j){
+					mat[i][j] = mat[i-1][j];
+				}
+				else{
+					mat[i][j] = (int) Math.max(mat[i-1][j], mat[i-1][(int) ((j - b.getObjectList().get(i).getWeight()))] + b.getObjectList().get(i).getValue());
+				}
+			}
+		}
+		
 		
 		//on peut récupérer les valeurs de i et j apres la double boucle
 		// i = nb objet - 1
@@ -28,7 +52,7 @@ public class progDynamique {
 		
 		//boucle de récupération 
 		
-		for(; i < nbObj; i++) {
+		/*for(; i < nbObj; i++) {
 			for(; j < maxWeight + 1; j++) {
 					if (b.getObjectList().get(i).getWeight() < j)
 						continue;
@@ -51,7 +75,7 @@ public class progDynamique {
 						System.out.println(j);
 						System.out.println(b.getObjectList().get(i).getWeight());
 						System.out.println(b.getObjectList().get(i).getValue());
-						System.out.println(j - b.getObjectList().get(i).getWeight() + b.getObjectList().get(i).getValue());*/
+						System.out.println(j - b.getObjectList().get(i).getWeight() + b.getObjectList().get(i).getValue());
 						if (i == 0)
 							mat[i][j] = (int) Math.max(mat[i][j], mat[i][(int) ((j - b.getObjectList().get(i).getWeight()))] + b.getObjectList().get(i).getValue());
 						else
@@ -61,21 +85,29 @@ public class progDynamique {
 								
 			}
 			
-		}
+		}*/
+		i--;
+		j--;
+		System.out.println("i: " + i );
+		System.out.println("j: " + j );
 		
-		int i -= 1;
-		while(mat[i][j] == mat[i][j-1]) {
+		while(j != 0 && mat[i][j] == mat[i][j-1]) {
 			j--;
-			while(j > 0) {
-				while(i > 0 && mat[i][j] == mat[i-1][j]) 
-					i--;
-				j = (int) (j - b.getObjectList().get(i).getWeight());
-				if(j >= 0) 
-					b.addObject(b.getObjectList().get(i));
-				i--;				
-			}
 		}
+				
+		while(j > 0){
+			while(i > 0 && mat[i][j] == mat[i-1][j]){
+				i--;
+			}
+			j = (int) (j - b.getObjectList().get(i).getWeight());
+			if(j > 0){
+				b.addObject(b.getObjectList().get(i));
+			}
+			i--;	
+		}
+
 		castToFloat(coeff, b.getObjectList(), b);
+		System.out.println("a");
 	}
 	
 	public static int coefficient(SacADos b, ArrayList<Objet> list) {
