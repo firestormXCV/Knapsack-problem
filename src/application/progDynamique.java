@@ -16,33 +16,36 @@ public class progDynamique {
 		
 		for(int i = 0; i < nbObj; i++) {
 			for(int j = 0; j < maxWeight; j++) {
-				if(b.getObjectList().get(0).getWeight() > j) {
-					mat[0][j] = 0;
-				}
-				else {
-					mat[0][j] = (int) b.getObjectList().get(0).getValue();
-				}
-				
-				if(b.getObjectList().get(i).getWeight() > j) {
-					mat[i][j] = mat[i - 1][j];
-				}
-				else {
-					mat[i][j] = Math.max(mat[i - 1][j], mat[i - 1][(int) ((j - b.getObjectList().get(i).getWeight()) + b.getObjectList().get(i).getValue())]);
-				}
-				
-				while(mat[i][j] == mat[i][j-1]) {
-					j--;
-					while(j > 0) {
-						while(i > 0 && mat[i][j] == mat[i-1][j]) {
-							i--;
-							j = (int) (j - b.getObjectList().get(i).getWeight());
-							if(j > 0) {
-								b.addObject(b.getObjectList().get(i));
+					if(b.getObjectList().get(0).getWeight() > j) {
+						mat[0][j] = 0;
+					}
+					else {
+						mat[0][j] = (int) b.getObjectList().get(0).getValue();
+					}
+					
+					if(b.getObjectList().get(i).getWeight() > j) {
+						if (i == 0) {
+							mat[i][j] = mat[i][j];
+						}else
+						mat[i][j] = mat[i - 1][j];
+					}
+					else {
+						mat[i][j] = Math.max(mat[i - 1][j], mat[i - 1][(int) ((j - b.getObjectList().get(i).getWeight()) + b.getObjectList().get(i).getValue())]);
+					}
+					
+					while(mat[i][j] == mat[i][j-1]) {
+						j--;
+						while(j > 0) {
+							while(i > 0 && mat[i][j] == mat[i-1][j]) {
 								i--;
+								j = (int) (j - b.getObjectList().get(i).getWeight());
+								if(j > 0) {
+									b.addObject(b.getObjectList().get(i));
+									i--;
+								}
 							}
 						}
-					}
-				}				
+					}			
 			}
 		}
 	
@@ -56,7 +59,7 @@ public class progDynamique {
 		char sep;
 		
 		for(Objet o : list) {
-			str = df.format(o);
+			str = df.format(o.getWeight());
 			sep = df.getDecimalFormatSymbols().getDecimalSeparator();
 			str = str.substring( str.indexOf(sep) + 1 );
 			if (coeff < str.length()) {

@@ -6,13 +6,10 @@ import java.util.Collections;
 public class QuickSort {
     
 	static int repartition(ArrayList<Objet> list, float low, float high) {
-	 
 	    float pivot = list.get((int) high).getRatio(); 
-
 	    int i = (int) (low - 1); 
-	  
+	    
 	    for(int j = (int) low; j <= high - 1; j++){
-
 	        if (list.get(j).getRatio() < pivot){
 	            i++;
 	             Collections.swap(list, i, j);
@@ -41,8 +38,7 @@ public class QuickSort {
         return list.get((int) d).getRatio();
     }
     
-    public final static ArrayList<Objet> QuickSort(ArrayList<Objet> list, float first, float last) {    	
-    	    	
+    public final static ArrayList<Objet> QuickSort(ArrayList<Objet> list, float first, float last) {    		
     	order(list,first,last);
 		Collections.reverse(list);
 		return list;

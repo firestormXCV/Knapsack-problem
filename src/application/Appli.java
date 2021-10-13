@@ -8,12 +8,13 @@ public class Appli {
 	public static void main(String[] args) {
 		
 		SacADos rempli = new SacADos("items.txt", 2);
+//		rempli.setObjectList(QuickSort.QuickSort(rempli.getObjectList(),(float) 0, (float) rempli.getObjectList().size() - 1));
+//		Glouton.glouton(rempli);
+//		System.out.println(rempli.toStringIn());
 		
-		rempli.setObjectList(QuickSort.QuickSort(rempli.getObjectList(),(float) 0, (float) rempli.getObjectList().size() - 1));
-		
-		Glouton.glouton(rempli);
-		
-		System.out.println(rempli.toStringIn());
+		SacADos sacDynamique = new SacADos("items.txt", 2);
+		progDynamique.progDynamique(sacDynamique);
+		System.out.println(sacDynamique.toString());
 
 		
 	}
