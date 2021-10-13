@@ -12,7 +12,7 @@ public class Appli {
 //		Glouton.glouton(rempli);
 //		System.out.println(rempli.toStringIn());
 		
-		SacADos sacDynamique = new SacADos("items.txt", 2);
+		SacADos sacDynamique = new SacADos("dynamique.txt", 12);
 		progDynamique.progDynamique(sacDynamique);
 		System.out.println(sacDynamique.toString());
 

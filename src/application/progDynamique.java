@@ -13,9 +13,26 @@ public class progDynamique {
 		int maxWeight = (int) b.getMaxWeight();
 		
 		int[][] mat = new int[nbObj][maxWeight+1];
+		int i = 0;
+		int j = 0;
+		//boucle d'initialisaton de la matrice :tout mettre a 0 
+		//boucle simple cf la boucle j 
 		
-		for(int i = 0; i < nbObj; i++) {
-			for(int j = 0; j < maxWeight; j++) {
+		//faire ensuite la double blouce de i et j pour remplir le tableau 
+		// i = nb objet 
+		// j = poids max + 1
+		
+		//on peut récupérer les valeurs de i et j apres la double boucle
+		// i = nb objet - 1
+		//j = poids max 
+		
+		//boucle de récupération 
+		
+		for(; i < nbObj; i++) {
+			for(; j < maxWeight + 1; j++) {
+					if (b.getObjectList().get(i).getWeight() < j)
+						continue;
+				
 					if(b.getObjectList().get(0).getWeight() > j) {
 						mat[0][j] = 0;
 					}
@@ -30,25 +47,34 @@ public class progDynamique {
 						mat[i][j] = mat[i - 1][j];
 					}
 					else {
-						mat[i][j] = Math.max(mat[i - 1][j], mat[i - 1][(int) ((j - b.getObjectList().get(i).getWeight()) + b.getObjectList().get(i).getValue())]);
+						/*System.out.println(i);
+						System.out.println(j);
+						System.out.println(b.getObjectList().get(i).getWeight());
+						System.out.println(b.getObjectList().get(i).getValue());
+						System.out.println(j - b.getObjectList().get(i).getWeight() + b.getObjectList().get(i).getValue());*/
+						if (i == 0)
+							mat[i][j] = (int) Math.max(mat[i][j], mat[i][(int) ((j - b.getObjectList().get(i).getWeight()))] + b.getObjectList().get(i).getValue());
+						else
+							mat[i][j] = (int) Math.max(mat[i - 1][j], mat[i - 1][(int) ((j - b.getObjectList().get(i).getWeight()))] + b.getObjectList().get(i).getValue());
 					}
 					
-					while(mat[i][j] == mat[i][j-1]) {
-						j--;
-						while(j > 0) {
-							while(i > 0 && mat[i][j] == mat[i-1][j]) {
-								i--;
-								j = (int) (j - b.getObjectList().get(i).getWeight());
-								if(j > 0) {
-									b.addObject(b.getObjectList().get(i));
-									i--;
-								}
-							}
-						}
-					}			
+								
+			}
+			
+		}
+		
+		int i -= 1;
+		while(mat[i][j] == mat[i][j-1]) {
+			j--;
+			while(j > 0) {
+				while(i > 0 && mat[i][j] == mat[i-1][j]) 
+					i--;
+				j = (int) (j - b.getObjectList().get(i).getWeight());
+				if(j >= 0) 
+					b.addObject(b.getObjectList().get(i));
+				i--;				
 			}
 		}
-	
 		castToFloat(coeff, b.getObjectList(), b);
 	}
 	
@@ -61,7 +87,7 @@ public class progDynamique {
 		for(Objet o : list) {
 			str = df.format(o.getWeight());
 			sep = df.getDecimalFormatSymbols().getDecimalSeparator();
-			str = str.substring( str.indexOf(sep) + 1 );
+			str = str.substring( str.indexOf(sep) + 1);
 			if (coeff < str.length()) {
 				coeff = str.length();
 			}
