@@ -94,7 +94,7 @@ public class progDynamique {
 		while(j != 0 && mat[i][j] == mat[i][j-1]) {
 			j--;
 		}
-				
+
 		while(j > 0){
 			while(i > 0 && mat[i][j] == mat[i-1][j]){
 				i--;
