@@ -9,14 +9,16 @@ public class Appli {
 		
 		SacADos rempli = new SacADos("items.txt", 2);
 		rempli.setObjectList(QuickSort.QuickSort(rempli.getObjectList(),(float) 0, (float) rempli.getObjectList().size() - 1));
-		Glouton.glouton(rempli);
+        Glouton glouton = new Glouton();
+        glouton.resolution(rempli);
 		System.out.println(rempli.toStringIn());
 		
 		System.out.println("**********************************");
 		
 		SacADos sacDynamique = new SacADos("dynamique.txt", 12);
 		PSE pse = new PSE();
-		pse.pseAlgorithm(sacDynamique);
+		
+		pse.resolution(sacDynamique);
 		
 		System.out.println(sacDynamique.toStringIn());
 

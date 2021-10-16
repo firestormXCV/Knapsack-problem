@@ -2,7 +2,7 @@ package application;
 
 import java.util.ArrayList;
 
-public class PSE {
+public class PSE implements IResolution {
     
     private ArrayList<Integer> value;
     private ABR bestRes;
@@ -22,7 +22,7 @@ public class PSE {
      * changer Ã  chaque tour les noeuds courants pour toujours ajouter les objets aux fils du noeud courant 
      * dÃ©finir les bornes -> valeur borne min Ã  revoir et valeur borne max = maxeight du sac 
      */
-    public void pseAlgorithm(SacADos b) {
+    public void resolution(SacADos b) {
         /*
         ArrayList<PSE> currents = new ArrayList<>();
         currents.add(this);
@@ -38,8 +38,9 @@ public class PSE {
         this.maxWeight = b.getMaxWeight();
         this.minValues = 0;
         float maxValues = 0;
+        Glouton glouton = new Glouton();
+        glouton.resolution(b);
         
-        Glouton.glouton(b);
         minValues = b.getValues();
         
         for(Objet o : b.getObjectList()) {

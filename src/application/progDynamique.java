@@ -3,9 +3,9 @@ package application;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-public class progDynamique {
-		
-	public static final void progDynamique(SacADos b) {
+public class progDynamique implements IResolution {
+	
+	public final void resolution(SacADos b) {
 		int nbObj = b.nbObjetsInTheBag();
 		int coeff = coefficient(b , b.getObjectList());
 		
