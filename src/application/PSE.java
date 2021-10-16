@@ -66,6 +66,8 @@ public class PSE {
 		if (actualNode.getLeftSon().getWeight() < b.getMaxWeight() && minValues < actualNode.getLeftSon().getValues()) {
 			bestRes = actualNode.getLeftSon();
 			minValues = bestRes.getValues();
+			
+		
 		}
 	}
 	
