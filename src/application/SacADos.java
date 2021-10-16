@@ -99,6 +99,12 @@ public class SacADos {
 		return maxWeight;
 	}
 	
+	public void toEmpty() {
+		inTheBag.removeAll(inTheBag);
+		currentWeight = 0;
+		values = 0;
+	}
+	
 	public void addObject(Objet o) {
 		
 		if (currentWeight + o.getWeight() <= maxWeight) {

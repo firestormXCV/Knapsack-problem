@@ -14,8 +14,10 @@ public class Appli {
 		
 		System.out.println("**********************************");
 		
-		SacADos sacDynamique = new SacADos("items.txt", 2);
-		progDynamique.progDynamique(sacDynamique);
+		SacADos sacDynamique = new SacADos("dynamique.txt", 12);
+		PSE pse = new PSE();
+		pse.pseAlgorithm(sacDynamique);
+		
 		System.out.println(sacDynamique.toStringIn());
 
 		
