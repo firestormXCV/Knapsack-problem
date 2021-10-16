@@ -8,24 +8,25 @@ public class Appli {
 	public static void main(String[] args) {
 		
 		SacADos rempli = new SacADos("items.txt", 2);
-//		rempli.setObjectList(QuickSort.QuickSort(rempli.getObjectList(),(float) 0, (float) rempli.getObjectList().size() - 1));
-//		Glouton.glouton(rempli);
-//		System.out.println(rempli.toStringIn());
+		rempli.setObjectList(QuickSort.QuickSort(rempli.getObjectList(),(float) 0, (float) rempli.getObjectList().size() - 1));
+		Glouton.glouton(rempli);
+		System.out.println(rempli.toStringIn());
 		
-		SacADos sacDynamique = new SacADos("dynamique.txt", 12);
+		System.out.println("**********************************");
+		
+		SacADos sacDynamique = new SacADos("items.txt", 2);
 		progDynamique.progDynamique(sacDynamique);
-		System.out.println(sacDynamique.toString());
+		System.out.println(sacDynamique.toStringIn());
 
 		
 	}
 
 	/**
 	 * TODO
-	 * - tester si les méthodes avec les coeff fonctionnent bien 
 	 * - ecrire la méthode pse 
 	 * - tester la méthode pse une fois fini 
-	 * - modifier le tostring du sac ? 
 	 * - faire des tests unitaires ? 
+	 * - supprimer les getters et setters non utilisés 
 	 */
 }
 

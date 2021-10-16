@@ -52,7 +52,6 @@ public class SacADos {
 	
 	private Objet initObj(String obj) {
 		String[] objInfo = obj.split(";");
-		//parce que lenght renvoi le nb d'éléments donc 3
 		if (objInfo.length == 3) {
 			return new Objet (objInfo[0], Float.parseFloat(objInfo[1]), Float.parseFloat(objInfo[2]));
 		}
@@ -71,13 +70,6 @@ public class SacADos {
 		
 	}
 	
-	/**
-	 * 
-	 * ajouter des informations sur le sac ? 
-	 * - poids total 
-	 * - valeur total 
-	 * - % de remplissage du sac 
-	 */
 	public String toStringOut() {
 		StringBuilder bagContent = new StringBuilder();
 		for(Objet o : objectsList) {
@@ -86,10 +78,19 @@ public class SacADos {
 		return bagContent.toString();
 	}
 	
+	/**
+	 * 
+	 * ajouter des informations sur le sac ? 
+	 * - % de remplissage du sac 
+	 */
 	public String toStringIn() {
 		StringBuilder bagContent = new StringBuilder();
+		bagContent.append("Poids actuel du sac à dos    : " + this.currentWeight + "\n");
+		bagContent.append("Valeur actuelle du sac à dos : " + this.values + "\n");
+		bagContent.append("Liste des objets dans le sac : " + "\n");
+
 		for(Objet o : inTheBag) {
-			bagContent.append(o.getName() + " ; " + o.getWeight() + " ; " + o.getValue()+ " ; " + o.getRatio() + "\n");
+			bagContent.append("> " + o.getName() + " ; " + o.getWeight() + " ; " + o.getValue()+ " ; " + o.getRatio() + "\n");
 		}
 		return bagContent.toString();
 	}
@@ -140,6 +141,7 @@ public class SacADos {
 		return values;
 	}
 
-
-	
+	public void setCurrentWeight(float currentWeight) {
+		this.currentWeight = currentWeight;
+	}	
 }
