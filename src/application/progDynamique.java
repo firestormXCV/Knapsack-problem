@@ -3,8 +3,15 @@ package application;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+/**
+ * @author Pasquier, Pessey
+ * @brief Classe progDynamique
+ */
 public class progDynamique implements IResolution {
 	
+	/**
+	 * @brief Methode de resolution du probleme du sac a dos - Programmation dynamique
+	 */
 	public final void resolution(SacADos b) {
 		int nbObj = b.nbObjetsInTheBag();
 		int coeff = coefficient(b , b.getObjectList());
@@ -60,6 +67,13 @@ public class progDynamique implements IResolution {
 		castToFloat(coeff, b.getObjectList(), b);
 	}
 	
+	/**
+	 * @brief Methode permettant de trouver le coefficient par lequel on multiplie les poids des objets et du sac pour les
+	 * 		  caster en entier sans perdre d'informations
+	 * @param b le sac a dos 
+	 * @param list la liste des objets contenus dans le sac a dos 
+	 * @return le coefficient
+	 */
 	public static int coefficient(SacADos b, ArrayList<Objet> list) {
 		int coeff = 0;
 		String str;
@@ -85,7 +99,13 @@ public class progDynamique implements IResolution {
 		return (int) Math.pow(10, coeff);
 	}
 	
-
+	/**
+	 * @brief Methode multipliant les poids des objets et du sac par un coefficient pour obtenir des valeurs qui 
+	 * 		  pourront etre caster en entier
+	 * @param coeff le coefficient 
+	 * @param list la liste des objets
+	 * @param b le sac
+	 */
 	public static void castToInt(int coeff, ArrayList<Objet> list, SacADos b) {
 		for(Objet o : list) {
 			o.setWeight(o.getWeight() * coeff);
@@ -93,6 +113,13 @@ public class progDynamique implements IResolution {
 		b.setMaxWeight(b.getMaxWeight() * coeff);
 	}
 	
+	/**
+	 * @brief Methode divisant les poids des objets et du sac par un coefficient pour obtenir des valeurs qui 
+	 * 		  pourront etre caster en float
+	 * @param coeff le coefficient 
+	 * @param list la liste des objets
+	 * @param b le sac
+	 */
 	public static void castToFloat(int coeff, ArrayList<Objet> list, SacADos b) {
 		try {
 			for(Objet o : list) {

@@ -1,36 +1,35 @@
 package application;
 
-import java.util.ArrayList;
-import java.util.Collections;
-
 public class Appli {
 
 	public static void main(String[] args) {
 		
-		SacADos rempli = new SacADos("items.txt", 2);
-		rempli.setObjectList(QuickSort.QuickSort(rempli.getObjectList(),(float) 0, (float) rempli.getObjectList().size() - 1));
+		SacADos sacGlouton = new SacADos("items.txt", 8);
+		SacADos sacDynamique = new SacADos("items.txt", 8);
+		SacADos sacPSE = new SacADos("items.txt", 8);
+
         Glouton glouton = new Glouton();
-        glouton.resolution(rempli);
-		System.out.println(rempli.toStringIn());
-		
-		System.out.println("**********************************");
-		
-		SacADos sacDynamique = new SacADos("dynamique.txt", 12);
+        progDynamique progDynamique = new progDynamique();
 		PSE pse = new PSE();
 		
-		pse.resolution(sacDynamique);
-		
+		sacGlouton.setObjectList(QuickSort.QuickSort(sacGlouton.getObjectList(),(float) 0, (float) sacGlouton.getObjectList().size() - 1));
+        
+		glouton.resolution(sacGlouton);
+		progDynamique.resolution(sacDynamique);
+		pse.resolution(sacPSE);
+
+		System.out.println(sacGlouton.toStringIn());
+		System.out.println("**********************************");
 		System.out.println(sacDynamique.toStringIn());
+		System.out.println("**********************************");
+		System.out.println(sacPSE.toStringIn());
 
 		
 	}
 
 	/**
 	 * TODO
-	 * - ecrire la méthode pse 
-	 * - tester la méthode pse une fois fini 
 	 * - faire des tests unitaires ? 
-	 * - supprimer les getters et setters non utilisés 
 	 */
 }
 

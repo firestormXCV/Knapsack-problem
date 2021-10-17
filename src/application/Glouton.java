@@ -1,10 +1,14 @@
 package application;
 
-import java.util.ArrayList;
-import java.util.Collections;
-
+/**
+ * @author Pasquier, Pessey
+ * @brief Classe Glouton
+ */
 public class Glouton implements IResolution {
-		
+	
+	/**
+	 * @brief Methode de resolution du probleme du sac a dos - Methode approchee
+	 */
 	public final void resolution(SacADos bag) {
 		float weight = bag.getCurrentWeight();
 		for(int i = 0; i < bag.getObjectList().size(); i++) {
