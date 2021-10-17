@@ -47,6 +47,8 @@ public class Appli {
 						System.out.println(bag.toStringIn());
 						loop = false;
 						break;	
+					default:
+						System.out.println("Saisie non valide merci de recommencer");
 				}
 			} catch (Exception e) {
 				System.out.println("Saisie non valide merci de recommencer");
