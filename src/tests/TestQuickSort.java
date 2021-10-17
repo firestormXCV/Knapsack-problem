@@ -5,9 +5,9 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import org.junit.Test;
 
-import application.Objet;
-import application.QuickSort;
-import application.SacADos;
+import structure.Objet;
+import structure.SacADos;
+import tri.QuickSort;
 
 public class TestQuickSort {
 

@@ -1,5 +1,11 @@
 package application;
 
+import resolutions.Glouton;
+import resolutions.PSE;
+import resolutions.progDynamique;
+import structure.SacADos;
+import tri.QuickSort;
+
 public class Appli {
 
 	public static void main(String[] args) {

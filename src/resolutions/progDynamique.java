@@ -1,7 +1,10 @@
-package application;
+package resolutions;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+
+import structure.Objet;
+import structure.SacADos;
 
 /**
  * @author Pasquier, Pessey

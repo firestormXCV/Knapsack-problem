@@ -4,12 +4,12 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import application.Glouton;
-import application.Objet;
-import application.PSE;
-import application.QuickSort;
-import application.SacADos;
-import application.progDynamique;
+import resolutions.Glouton;
+import resolutions.PSE;
+import resolutions.progDynamique;
+import structure.Objet;
+import structure.SacADos;
+import tri.QuickSort;
 
 public class TestResolution {
 

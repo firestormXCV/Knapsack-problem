@@ -1,4 +1,6 @@
-package application;
+package resolutions;
+
+import structure.SacADos;
 
 /**
  * @author Pasquier, Pessey

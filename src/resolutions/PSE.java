@@ -1,4 +1,8 @@
-package application;
+package resolutions;
+
+import structure.ABR;
+import structure.Objet;
+import structure.SacADos;
 
 /**
  * @author Pasquier, Pessey

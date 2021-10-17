@@ -1,4 +1,4 @@
-package application;
+package structure;
 
 /**
  * @author Pasquier, Pessey

@@ -1,4 +1,4 @@
-package application;
+package structure;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -17,7 +17,7 @@ public class SacADos {
 	 */
 	private float maxWeight;
 	private float currentWeight; 
-	private ArrayList<Objet> objectsList;
+	private ArrayList<Objet> objectsList;		//La liste des objet possible
 	private ArrayList<Objet> inTheBag;
 	private float values;
 

@@ -1,7 +1,9 @@
-package application;
+package tri;
 
 import java.util.ArrayList;
 import java.util.Collections;
+
+import structure.Objet;
 
 /**
  * @author Pasquier, Pessey
