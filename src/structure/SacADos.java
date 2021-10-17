@@ -17,7 +17,7 @@ public class SacADos {
 	 */
 	private float maxWeight;
 	private float currentWeight; 
-	private ArrayList<Objet> objectsList;		//La liste des objet possible
+	private ArrayList<Objet> objectsList;		//La liste des objets qu'on peut mettre dans le sac
 	private ArrayList<Objet> inTheBag;
 	private float values;
 
@@ -71,7 +71,7 @@ public class SacADos {
 	
 	/**
 	 * @brief Initialisation d'un objet
-	 * @param obj l'objet a initialise 
+	 * @param obj l'objet a initialiser 
 	 * @return l'objet initialise
 	 */
 	private Objet initObj(String obj) {
@@ -85,7 +85,7 @@ public class SacADos {
 	/**
 	 * @brief Initialition d'une liste d'objet
 	 * @param url lien du fichier a lire
-	 * @return liste d'objet initialisee 
+	 * @return liste d'objets initialisee 
 	 */
 	private ArrayList initObjList(String url) {
 		String[] file = readTextFile(url).split("\n");
@@ -99,7 +99,7 @@ public class SacADos {
 
 	/**
 	 * @brief toString du sac a dos
-	 * @return chaine de caractere illustrant le sac a dos 
+	 * @return chaine de caracteres illustrant le sac a dos 
 	 */
 	public String toStringIn() {
 		StringBuilder bagContent = new StringBuilder();
