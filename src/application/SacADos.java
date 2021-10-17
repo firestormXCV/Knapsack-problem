@@ -198,5 +198,15 @@ public class SacADos {
 	 */
 	public void setCurrentWeight(float currentWeight) {
 		this.currentWeight = currentWeight;
-	}	
+	}
+
+	/**
+	 * @brief Getter de l'attribut inTheBag
+	 * @return la liste des objets presents dans le sac
+	 */
+	public ArrayList<Objet> getInTheBag() {
+		return inTheBag;
+	}
+	
+	
 }

@@ -16,7 +16,7 @@ public class QuickSort {
 	 * @param high
 	 * @return
 	 */
-	static int repartition(ArrayList<Objet> list, float low, float high) {
+	private static int repartition(ArrayList<Objet> list, float low, float high) {
 	    float pivot = list.get((int) high).getRatio(); 
 	    int i = (int) (low - 1); 
 	    
@@ -57,7 +57,7 @@ public class QuickSort {
      * @param d indice du premier objet de la liste
      * @return l'indice du pivot dans la liste
      */
-    static float ChoosePi(ArrayList<Objet> list, float d) {
+    private static float ChoosePi(ArrayList<Objet> list, float d) {
         return list.get((int) d).getRatio();
     }
     
