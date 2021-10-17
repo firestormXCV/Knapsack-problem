@@ -32,10 +32,5 @@ public class Appli {
 
 		
 	}
-
-	/**
-	 * TODO
-	 * - faire des tests unitaires ? 
-	 */
 }
 
