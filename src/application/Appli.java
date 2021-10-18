@@ -35,7 +35,7 @@ public class Appli {
 						System.out.println(bag.toStringIn());
 						loop = false;
 						break;
-					case "prog. dynamique":
+					case "prog.dynamique":
 						progDynamique progDynamique = new progDynamique();
 						progDynamique.resolution(bag);
 						System.out.println(bag.toStringIn());
